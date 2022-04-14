@@ -1,3 +1,14 @@
 /venv
 
 secret_key.txt
+
+#some files
+stream/allviews.py
+stream/allmodels.py
+stream/templates/stream/confirm_watchlist.html
+stream/templates/stream/login.html
+stream/templates/stream/login_register.html
+stream/templates/stream/login_register2.html
+stream/templates/stream/signup.html
+stream/templates/stream/signup2.html
+streamflix/templates/allnavbar.html

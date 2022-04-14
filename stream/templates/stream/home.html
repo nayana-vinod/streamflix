@@ -2,6 +2,18 @@
 
 {% block content %}
 
-<h1>heyy</h1>
+<h1>Shows</h1>
+
+{% for show in shows %}
+<a href="{% url 'show' show.id %}">{{ show.name }}</a>
+{% endfor %}
+
+<!-- <h1>Productions</h1>
+
+{% for production in productions }
+<a href="{% url 'production' production.id }">{{ production.name }</a>
+{% endfor } -->
+
+<a href="{% url 'watchlist' %}">{{ user.name }}'s Watchlist!</a>
 
 {% endblock %}

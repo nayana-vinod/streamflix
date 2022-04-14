@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for show in watchlist %}
+<h1>{{show.name}}</h1>
+
+<h2>{{ show.production.name }}</h2>
+{% endfor %}
+
+
+{% endblock %}

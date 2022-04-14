@@ -10,17 +10,18 @@ from django.contrib.auth.models import User
 class Production(models.Model):
     name = models.CharField(max_length=200)
     description =  models.TextField(null=True, blank=True)
+    # show = models.ForeignKey(Show, on_delete=models.SET_NULL, null=True, blank=True)
     # created = models.DateField(auto_now_add=False, null=True)
     created = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name
 
-
 class Show(models.Model):
     name = models.CharField(max_length=200, null=True)
     description =  models.TextField(null=True, blank=True)
-    production = models.ManyToManyField(Production, blank=True)
+    # production = models.ManyToManyField(Production, blank=True)
+    production = models.ForeignKey(Production, on_delete=models.SET_NULL, null=True, blank=True)
     # created = models.DateField(auto_now_add=False)
     released = models.IntegerField(null=True, blank=True)
 
@@ -29,46 +30,25 @@ class Show(models.Model):
     
     def __str__(self):
         return self.name 
+    
+# class Production(models.Model):
+#     name = models.CharField(max_length=200)
+#     description =  models.TextField(null=True, blank=True)
+#     show = models.ForeignKey(Show, on_delete=models.SET_NULL, null=True, blank=True)
+#     # created = models.DateField(auto_now_add=False, null=True)
+#     created = models.IntegerField(null=True, blank=True)
 
-class Plan(models.Model):
-    name = models.CharField(max_length=200, null=True)
-    description =  models.TextField(null=True, blank=True)
-    price = models.CharField(max_length=10, null=False)
-
-    def __str__(self):
-        return self.name 
+#     def __str__(self):
+#         return self.name
 
 class Watchlist(models.Model):
     # host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    shows = models.ManyToManyField(Show)
+    # show = models.ForeignKey(Show, on_delete=models.SET_NULL, null=True)
+    show = models.ManyToManyField(Show)
 
     def __str__(self):
        return f"{self.user}'s WatchList"
+        # return self.user
 
-
-# class UserDetails(models.Model):
-#     email = models.EmailField(null=True, unique=True)
-#     name = models.CharField(max_length=30, null=True)
-#     bio = models.TextField(null=True, blank=True)
-#     plan = models.ForeignKey(Plan, on_delete=models.CASCADE, null=True, blank=True)
-#     phno = models.IntegerField(null=True, unique=True)
-#     age = models.IntegerField(null=True, blank=True)
-
-#     # avatar = models.ImageField(null=True, default="avatar.svg")
-
-#     USERNAME_FIELD = 'email'
-#     # REQUIRED_FIELDS =[]
-
-#     def __str__(self):
-#         return str(self.email)
-
-
-# class User(models.Model):
-# #     email_id = models.ForeignKey(UserDetails, on_delete=models.CASCADE, null=True)
-#     # email = models.EmailField(max_length=30, null=True, unique=True) 
-
-#     email = models.OneToOneField(UserDetails, on_delete=models.CASCADE, null=True)
-
-#     def __str__(self):
-#         return str(self.email)
+    

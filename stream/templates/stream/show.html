@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>{{show.name}}</h1>
+<!-- <input type="submit" value="Add to Watchlist" name="submit"/> -->
+<!-- <a class="btn btn--main" href="{% url 'watchlist-add' }">Add to Watchlist</a> -->
+
+
+<div class="watchlist__show">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" name="show" value="Add to Watchlist"/>
+    </form>
+  </div>
+
+<h2>{{ show.production.name }}</h2>
+<!-- <a href="{ url 'production' show.production.id }">{ show.production.name }}</a> -->
+<!-- <a href="{{ url 'production' production.id }"></a> -->
+
+
+{% endblock %}

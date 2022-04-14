@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>{{production}}</h1>
+<!-- <h2>{{ show.production.name }}</h2> -->
+
+{% for show in production.show %}
+
+<h2>{{ production.show }}</h2>
+
+{% endfor %}
+
+{% endblock %}

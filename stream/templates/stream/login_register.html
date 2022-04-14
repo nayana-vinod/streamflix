@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="">
+<div class="login-box">
     <form class="form" action="" method="POST">
     {% csrf_token %}
       <!-- <label for="room_name">Email:</label>
@@ -19,5 +19,12 @@
     </form>
 </div>
 
+<style>
+  .login-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 
 {% endblock content%}
