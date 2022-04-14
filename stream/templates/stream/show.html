@@ -4,13 +4,15 @@
 
 <h1>{{show.name}}</h1>
 <!-- <input type="submit" value="Add to Watchlist" name="submit"/> -->
-<!-- <a class="btn btn--main" href="{% url 'watchlist-add' }">Add to Watchlist</a> -->
+<!-- <a class="btn btn--main" href="{} url 'watchlist-add' }">Add to Watchlist</a> -->
 
 
 <div class="watchlist__show">
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="submit" name="show" value="Add to Watchlist"/>
+      <!-- <input type="submit" name="show" value="Add to Watchlist"/> -->
+      <a class="btn btn--main" href="{% url 'watchlist-add' show.id %}">Add to Watchlist</a>
+
     </form>
   </div>
 

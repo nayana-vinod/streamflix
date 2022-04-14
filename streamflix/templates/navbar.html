@@ -7,7 +7,21 @@
           </a>
 
           <nav class="header__menu">
+            <!-- Logged In -->
+            {% if request.user.is_authenticated %}
+            <div class="header__user login-logout"> -->
+              <a href="{%url 'logout' %}" class="dropdown-link"> Logout</a>
+              <a href="#">
+                <p>{{request.user.username}} <span>@{{request.user.username}}</span></p>
+              </a>
+            </div>
+            {% else %}
+            <!-- Not Logged In -->
+            <a class="login-logout" href="{%url 'login'%}"> 
+              <p>Login</p>
+            </a> 
 
+            {% endif %} 
           </nav>
         </div>
         <style>
